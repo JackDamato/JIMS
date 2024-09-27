@@ -1,2 +1,2 @@
-# JIMS
-HackGT 11 Project with Jack D, Maya A, Ivanka S, and Sudiksha D
+# JIM
+HackGT 11 Project with Jack D, Ivanka S, and Maya A
