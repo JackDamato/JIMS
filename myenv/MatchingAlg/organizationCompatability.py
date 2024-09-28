@@ -1,28 +1,20 @@
-orgsA = "aphi, axo, aep"
-orgsB = "aphi, axo, zta"
-temporgsA = orgsA.split(',');
-temporgB = orgsB.split(',');
-
-def compare_lists(list1, list2):
+def compare_orgs(list1, list2):
+    if list1 is None or list2 is None:
+        return 0
+    temporgsA = list1.split(',')
+    temporgsB = list2.split(',')
     # Initialize counters and lists to keep track of matches
     same_count = 0
-    matches = []
-    
-    # Find the length of the longest list
-    max_length = max(len(list1), len(list2))
 
-    for i in range(max_length):
-        # Get the current elements or None if out of range
-        elem1 = list1[i] if i < len(list1) else None
-        elem2 = list2[i] if i < len(list2) else None
-
-        if elem1 == elem2:
-            same_count += 1
-            matches.append((elem1, elem2))  # Store matching pairs
-
-    return same_count
+    for i in range(len(temporgsA)):
+        for j in range(len(temporgsB)):
+            if temporgsA[i] == temporgsB[j]:
+                same_count += 1
+   
+   
+    return same_count * 10
         
-print(compare_lists(orgsA, orgsB))
+
 
 
 

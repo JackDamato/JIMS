@@ -23,6 +23,7 @@ verbs = {
     "understand", "remember", "use", "work", "love", "enjoy", "appreciate", 
     "adore", "cherish", "value", "admire", "treasure", "favor", "respect", "hate"
 }
+nltk.download('stopwords')
 stop_words = set(stopwords.words('english')).union(verbs)
 
 def get_embedding(text):
@@ -50,10 +51,10 @@ def cos_similarity(vectorA, vectorB):
     return (similarity[0][0] * 250 - 170)
 
 
-def main():
+def main(person1, person2):
     data = {
-        'Person1': [" and am looking forward to getting to know everyone. i enjoy all things sports related, music, art, and cooking! feel free to chat with me as i am quite easy going"],
-        'Person2': ["I love playing sports, trying new food, and going to concerts(super hype for chief keef and don toliver) Excited to meet you all soon but feel free to hmu before!!"]
+        'Person1': [person1],
+        'Person2': [person2]
     }
     df = pd.DataFrame(data, index=[0])
 
@@ -65,4 +66,4 @@ def main():
     embeddingA = get_embedding(df['Person1'][0])
     embeddingB = get_embedding(df['Person2'][0])
 
-    return cos_similarity(embeddingA, embeddingB)
+    return abs(cos_similarity(embeddingA, embeddingB))
