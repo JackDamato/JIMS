@@ -22,9 +22,6 @@ def get_user_by_id(user_id):
 # Function to store a compatibility score
 def store_compatibility_score(user1_id, user2_id):
     
-    db = get_database()
-    user1_db = db[str(user1_id)]
-
     # Always store the smaller user_id as user1_id
     if user1_id > user2_id:
         user1_id, user2_id = user2_id, user1_id
@@ -53,11 +50,5 @@ def store_compatibility_score(user1_id, user2_id):
     if score > 100:
         score = 100
 
-    # Insert or update the compatibility score
-    user1_db.update_one(
-        {"user2_id": user2_id},
-        {"$set": {"compatibility_score": score, "last_updated": datetime.utcnow()}},
-        upsert=True
-    )
     return (score, user2_id)
   
