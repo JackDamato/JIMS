@@ -23,8 +23,6 @@ def get_user_by_id(user_id):
 def store_compatibility_score(user1_id, user2_id):
     
     db = get_database()
-    ## x = ObjectId(y)
-    ##compatibilityScore = db['compatibilityScore']
     user1_db = db[str(user1_id)]
 
     # Always store the smaller user_id as user1_id
@@ -61,5 +59,5 @@ def store_compatibility_score(user1_id, user2_id):
         {"$set": {"compatibility_score": score, "last_updated": datetime.utcnow()}},
         upsert=True
     )
-    return score, user2_id
+    return (score, user2_id)
   
