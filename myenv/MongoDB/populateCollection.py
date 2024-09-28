@@ -26,6 +26,13 @@ def populate_collection(user1_id):
         if user1['_id'] != user2['_id']:
             arrlist += store_compatibility_score(user1['_id'], user2['_id'])
     #sort the array
-    print(arrlist)
+        print(arrlist)
+    populate_collection(ObjectId('66f7ea39a0b41cd4dc7a5126'))
 
-populate_collection(ObjectId('66f7ea39a0b41cd4dc7a5126'))
+def sortMatch():
+    arrNames = []
+    for i in arrlist:
+        arrNames += get_user_by_id(i[1])['_id']
+
+    arrNames.sort(reverse=True)
+    return arrNames
