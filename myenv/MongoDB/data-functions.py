@@ -5,9 +5,12 @@ from datetime import datetime
 user = {
   "Username" : "",
   "Age" : 18,
+  "AgeMin" : 17,
+  "AgeMax" : 20,
   "Email" : "",
   "Ethnicity" : "",
   "Gender" : "",
+  "GenderInterest" : "",
   "Interests" : "",
   "Major" : "",
   "Name" : "",
