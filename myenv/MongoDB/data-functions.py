@@ -20,7 +20,6 @@ user = {
   "Year" : 1
 }
 
-
 activity = {
     "Creator" : "",
     "Title" : "",

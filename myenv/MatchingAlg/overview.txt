@@ -1,0 +1,23 @@
+
+    
+
+What we need to do:
+
+
+Personality Compatability
+    - text preprocessing
+    - vectorization
+    - similarity measures
+    - sentiment analysis
+
+    
+Organizational Compatability (Extra Credit Vibes)
+    - Direct Comparison
+    - AI comparison 
+    Embedding NLP
+
+
+
+
+Major/Year Compatability
+    Extra credit, no more than 100 for the final score
