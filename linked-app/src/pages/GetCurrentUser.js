@@ -22,7 +22,7 @@ const GetCurrentUser = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:5001/api/auth', userData);
+            const response = await axios.post('http://localhost:5000/api/auth', userData);
             if (response.status === 200) {
               // User exists
                 navigate('/workspaces/JIMS/linked-app/src/pages/LogIn.js');         
@@ -38,6 +38,12 @@ const GetCurrentUser = () => {
 
     return (
         <>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
         <div className="user-profile">
             <h1>Find your account</h1>
             <form onSubmit={handleSubmit}>

@@ -11,6 +11,7 @@
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin: 5px;
 }
 
 .card img {
@@ -24,7 +25,7 @@
 }
 
 .card p {
-    padding: 0 10px 10px;
+    padding: 0 15px 15px;
     font-size: 0.9em;
 }
 

@@ -33,10 +33,11 @@ const Register = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:5001/api/users', userData);
+            const response = await axios.post('http://localhost:5000/api/users', userData);
             console.log('User added:', response.data);
             // Reset form
-            setUserData({ username: '',
+            setUserData({ 
+                username: '',
                 password: '',
                 email: '',
                 name: '',
@@ -177,6 +178,10 @@ const Register = () => {
                         required
                     ></textarea>
                 </div>
+                <div>
+                <button type="submit">Submit</button>
+                </div>
+
             </form>
             <option>
                 
@@ -190,9 +195,6 @@ const Register = () => {
 
             <div className='spacer'></div>
 
-            <div>
-                <button type="submit">Submit</button>
-            </div>
         <div className='spacer'></div>
         </div>
         </>

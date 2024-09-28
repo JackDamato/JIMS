@@ -3,12 +3,14 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
+// const uri = "mongodb+srv://mangia3:linked@linked-cluster.afu0s.mongodb.net/linked_database";
+
 // MongoDB Atlas connection URI
-const uri = 'mongodb+srv://mangia3:linked@linked-cluster.afu0s.mongodb.net/linked_database'; // Replace with your connection string
+const uri = "mongodb+srv://mangia3:linked@linked-cluster.afu0s.mongodb.net/linked_database";
 
 // Create Express app
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
@@ -27,11 +29,6 @@ const userSchema = new mongoose.Schema({
     year: String,
     clubs: String
 });
-
-//MongoDB Compatability Schema
-const compatibilitySchema = new mongoose.Schema({
-    
-})
 
 // Create User model
 const User = mongoose.model('User', userSchema);
