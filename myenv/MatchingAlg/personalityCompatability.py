@@ -48,7 +48,7 @@ def preprocessing(paragraph):
 # Scale Adjusted for the 
 def cos_similarity(vectorA, vectorB):
     similarity = cosine_similarity([vectorA], [vectorB])
-    return (similarity[0][0] * 250 - 170)
+    return (similarity[0][0] * 250 - 150)
 
 
 def main(person1, person2):
@@ -62,7 +62,6 @@ def main(person1, person2):
     df['Person1'] = df['Person1'].apply(preprocessing)
     df['Person2'] = df['Person2'].apply(preprocessing)
 
-    print(df)
     embeddingA = get_embedding(df['Person1'][0])
     embeddingB = get_embedding(df['Person2'][0])
 
