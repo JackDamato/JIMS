@@ -178,6 +178,10 @@ const Register = () => {
                         required
                     ></textarea>
                 </div>
+                <div>
+                    <button type="submit">Submit</button>
+                </div>
+
             </form>
             <option>
                 
@@ -190,10 +194,6 @@ const Register = () => {
             <div className='spacer'></div>
 
             <div className='spacer'></div>
-
-            <div>
-                <button type="submit">Submit</button>
-            </div>
         <div className='spacer'></div>
         </div>
         </>
