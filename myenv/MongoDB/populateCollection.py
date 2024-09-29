@@ -19,7 +19,8 @@ def sortMatch(paired_data):
     arrId = []
     paired_data.sort(reverse=True, key=lambda x: x[0])
     for pair in paired_data:
-        arrId.append(str(pair[1]))
+        if pair[0] > 30:
+            arrId.append(str(pair[1]))
     return arrId
 
 # Call this function for some person, and then it populates their "Collection" with all of their compatability scores
