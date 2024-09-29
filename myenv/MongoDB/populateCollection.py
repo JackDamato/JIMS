@@ -15,24 +15,22 @@ def get_user_by_id(user_id):
     db = get_database()
     return db['users'].find_one({"_id": user_id})
 
-def sortMatch(arrlist):
-    arrNames = []
-    paired_data =[(arrlist[i], arrlist[i+1]) for i in range(0, len(arrlist), 2)]
+def sortMatch(paired_data):
+    arrId = []
     paired_data.sort(reverse=True, key=lambda x: x[0])
-    return arrNames
+    for pair in paired_data:
+        arrId.append(str(pair[1]))
+    return arrId
 
 # Call this function for some person, and then it populates their "Collection" with all of their compatability scores
 def populate_collection(user1_id):
-    #arrlist is a list of tuples, (score, ID)
+    user1_id = ObjectId(user1_id)
     arrlist = []
     db = get_database()
     user1 = get_user_by_id(user1_id)
     users = db['users'].find()
     for user2 in users:
         if user1['_id'] != user2['_id']:
-            arrlist += store_compatibility_score(user1['_id'], user2['_id'])
+            arrlist.append(store_compatibility_score(user1['_id'], user2['_id']))
     #sort the array
     return sortMatch(arrlist)
-
-
-
