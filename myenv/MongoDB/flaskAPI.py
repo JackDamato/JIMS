@@ -4,7 +4,9 @@ from populateCollection import populate_collection
 app = Flask(__name__)
 
 @app.route('/api/data', methods=['GET'])
-def get_data(user_id):
+def get_data():
+    user_id = request.args.get('user_id')
+
     response_data = {
         'Data': populate_collection(user_id)
     }
