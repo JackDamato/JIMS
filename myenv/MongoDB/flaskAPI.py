@@ -1,7 +1,11 @@
 from flask import Flask, jsonify, request
 from populateCollection import populate_collection
+from flask_cors import CORS  # Import the CORS module
+
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
+
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
