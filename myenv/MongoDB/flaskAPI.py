@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
-    user_id = request.args.get('user_id')
+    user_id = "66f880a3455f36f2602aedcf"
 
     response_data = {
         'Data': populate_collection(user_id)

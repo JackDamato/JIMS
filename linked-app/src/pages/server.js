@@ -3,14 +3,12 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-// const uri = "mongodb+srv://mangia3:linked@linked-cluster.afu0s.mongodb.net/linked_database";
-
 // MongoDB Atlas connection URI
-const uri = "mongodb+srv://mangia3:linked@linked-cluster.afu0s.mongodb.net/linked_database";
+const uri = 'mongodb+srv://mangia3:linked@linked-cluster.afu0s.mongodb.net/linked_database'; // Replace with your connection string
 
 // Create Express app
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 // Middleware
 app.use(cors());
@@ -76,6 +74,18 @@ app.get('/api/items', async (req, res) => {
         res.status(500).json({ message: 'Error fetching items', error });
     }
 });
+
+app.post('/api/documents', async (req, res) => {
+    const { ids } = req.body;
+    try {
+        const documents = await User.find({_id: {$in: ids} });
+        res.status(200).json(documents);
+        
+    } catch (error) {
+        res.status(500).json({ message: 'Error retrieving document', error });
+    }
+});
+
 
 
 // Start server

@@ -2,15 +2,30 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './DisplayPeople.css'; // Optional CSS file for styling
 
+
 const DisplayPeople = () => {
     const [items, setItems] = useState([]);
+    const [ids, setids] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        const userId = '66f878aa7957aabbd1e7f08c';
+        const getIds = async () => {
+            try {
+                const res = await axios.get('http://127.0.0.1:5000/api/data', {userId});
+                setids(res.data);
+            } catch (error) {
+                setError(error.message);
+            }
+        };
+        getIds();
+
+        // const ids = ['66f878aa7957aabbd1e7f08c', '66f87958f24a3cad79839318', '66f880a3455f36f2602aedcf'];
+
         const fetchItems = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/items');
+                const response = await axios.post('http://localhost:5001/api/documents', { ids });
                 setItems(response.data);
             } catch (err) {
                 setError(err.message);
@@ -20,7 +35,7 @@ const DisplayPeople = () => {
         };
 
         fetchItems();
-    }, []);
+    }, [ids]);
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
